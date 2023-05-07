@@ -4,11 +4,12 @@ const cors = require("cors");
 
 //Routers
 const userRouter = require("./src/features/user/user.router");
+const superAdminRouter = require("./src/features/superAdmin/superAdmin.router");
+const courseCoordRouter = require("./src/features/courseCoord/courseCoord.router");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
 //check
 app.get("/", (req, res) => {
     res.send("Hi Fynd Academy")
@@ -16,6 +17,10 @@ app.get("/", (req, res) => {
 
 //signup
 app.use("/users", userRouter);
+//superAdmin 
+app.use("/superAdmin",superAdminRouter);
+//courseCoord
+app.use("/courseCoord",courseCoordRouter)
 
 let PORT = 8080;
 app.listen(PORT, async() => {
