@@ -1,0 +1,26 @@
+const express = require("express");
+
+const course = require("./courses.model");
+const courseRouter = express.Router();
+
+
+courseRouter.post("/",async(req,res)=>{
+    let {type,name,desc,cc_id} = req.body;
+    try{
+        let courseData = await course.create({type,name,desc,cc_id})
+        return res.status(200).send({data: courseData})
+    }
+    catch(err){
+        return res.status(500).send(err.message);
+    }
+})
+
+
+courseRouter.get("/", async(req,res)=>{
+    try {
+        let data = await course.find().populate("coursecoord")
+        return res.status(200).send({data: data,message:"data added successfully"})
+    } catch (error) {
+        return res.status(500).send(err.message);
+    }
+})
