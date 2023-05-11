@@ -6,6 +6,7 @@ const cors = require("cors");
 const userRouter = require("./src/features/user/user.router");
 const superAdminRouter = require("./src/features/superAdmin/superAdmin.router");
 const courseCoordRouter = require("./src/features/courseCoord/courseCoord.router");
+const courseRouter = require("./src/features/courses/courses.router");
 
 const app = express();
 app.use(cors());
@@ -20,7 +21,9 @@ app.use("/users", userRouter);
 //superAdmin 
 app.use("/superAdmin",superAdminRouter);
 //courseCoord
-app.use("/courseCoord",courseCoordRouter)
+app.use("/courseCoord",courseCoordRouter);
+//course
+app.use("/course",courseRouter);
 
 let PORT = 8080;
 app.listen(PORT, async() => {
