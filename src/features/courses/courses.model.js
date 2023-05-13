@@ -4,7 +4,7 @@ const coursesSchema = new mongoose.Schema({
     type: {type: String, required: true},
     name: {type: String, required: true},
     desc: {type: String, required: true},
-    courseCoord: {type: mongoose.Schema.Types.ObjectId, ref: coursecoord}
+    courseCoord: {type: mongoose.Schema.Types.ObjectId, ref: "coursecoord"},
    
   
 });
