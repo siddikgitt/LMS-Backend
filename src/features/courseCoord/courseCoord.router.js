@@ -15,6 +15,7 @@ app.post("/login", async (req, res) => {
       token: user.id, 
     })
    }
+   
   catch(err){
     return res.status(500).send(err.message);
   }
