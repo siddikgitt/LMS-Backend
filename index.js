@@ -28,7 +28,7 @@ app.use("/course",courseRouter);
 //student
 app.use("/student",studentRouter);
 
-let PORT = 8080;
+let PORT = 8070;
 app.listen(PORT, async() => {
     await dbConnect()
     console.log(`Listening to http://localhost:${PORT}`);

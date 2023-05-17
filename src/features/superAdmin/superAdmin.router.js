@@ -21,9 +21,9 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/signup", async (req, res) => {
-  let {name, email, password} = req.body;
+  let {name, email, password,mobno} = req.body;
   try{
-      let user = await superAdmin.findOne({name, email, password});
+      let user = await superAdmin.findOne({name, email, password,mobno});
       if(user){
         return res.status(404).send("User already exists");
       }
