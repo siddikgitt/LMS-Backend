@@ -19,11 +19,11 @@ courseRouter.post("/",async(req,res)=>{
 courseRouter.get("/", async(req,res)=>{
     try {
         let data = await course.find().populate("coursecoord")
-        return res.status(200).send({data: data,message:"data added successfully"})
-    } catch (error) {
+        return res.status(200).send({data: data,message:"data fetched successfully"})
+    } catch (err) {
         return res.status(500).send(err.message);
     }
 })
 
-
 module.exports = courseRouter;
+
