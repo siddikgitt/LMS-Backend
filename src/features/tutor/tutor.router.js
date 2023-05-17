@@ -40,4 +40,3 @@ tutorRouter.get("/get_tutor_by_id/:id", async(req, res) => {
 })
 
 module.exports = tutorRouter;
-
