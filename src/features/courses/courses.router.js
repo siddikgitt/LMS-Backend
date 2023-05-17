@@ -5,9 +5,9 @@ const courseRouter = express.Router();
 
 
 courseRouter.post("/",async(req,res)=>{
-    let {type,name,desc,cc_id} = req.body;
+    let {name,desc,cc_id} = req.body;
     try{
-        let courseData = await course.create({type,name,desc,cc_id})
+        let courseData = await course.create({name,desc,cc_id})
         return res.status(200).send({data: courseData})
     }
     catch(err){
@@ -17,7 +17,7 @@ courseRouter.post("/",async(req,res)=>{
 
 courseRouter.get("/", async(req,res)=>{
     try {
-        let data = await course.find().populate("coursecoord")
+        let data = await course.find().populate("cc_id")
         return res.status(200).send({data: data,message:"data fetched successfully"})
     } catch (err) {
         return res.status(500).send(err.message);

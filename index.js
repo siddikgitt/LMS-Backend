@@ -8,6 +8,7 @@ const superAdminRouter = require("./src/features/superAdmin/superAdmin.router");
 const courseCoordRouter = require("./src/features/courseCoord/courseCoord.router");
 const courseRouter = require("./src/features/courses/courses.router");
 const studentRouter = require("./src/features/student/student.router");
+const lectureRouter = require("./src/features/lectures/lectures.router");
 
 const app = express();
 app.use(cors());
@@ -28,7 +29,10 @@ app.use("/course",courseRouter);
 //student
 app.use("/student",studentRouter);
 
-let PORT = 8070;
+// lecture
+app.use("/lecture", lectureRouter);
+
+let PORT = 8080;
 app.listen(PORT, async() => {
     await dbConnect()
     console.log(`Listening to http://localhost:${PORT}`);
