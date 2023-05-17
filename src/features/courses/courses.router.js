@@ -15,7 +15,6 @@ courseRouter.post("/",async(req,res)=>{
     }
 })
 
-
 courseRouter.get("/", async(req,res)=>{
     try {
         let data = await course.find().populate("coursecoord")
@@ -24,4 +23,5 @@ courseRouter.get("/", async(req,res)=>{
         return res.status(500).send(err.message);
     }
 })
-module.exports=courseRouter;
+
+module.exports = courseRouter;
