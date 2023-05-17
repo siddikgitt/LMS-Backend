@@ -24,4 +24,6 @@ courseRouter.get("/", async(req,res)=>{
         return res.status(500).send(err.message);
     }
 })
-module.exports=courseRouter;
+
+module.exports = courseRouter;
+
